@@ -2,12 +2,9 @@ version: '3'
 
 services:
   shopping-fast:
+    image: prismagraphql/mongo-single-replica:4.4.3-bionic
     container_name: shopping-fast-db
-    image: postgres:15.1
     ports:
-      - 5432:5432
+      - 27017:27017
     volumes:
-      - ./database:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=admin
+      - ./database:/data/db
