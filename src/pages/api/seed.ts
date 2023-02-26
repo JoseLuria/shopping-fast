@@ -17,79 +17,78 @@ const data = {
     '/products/6443ff0b-0c6d-4f7e-b3df-8e171c005f7d.jpg',
     '/products/bae20635-920c-47c6-8cc2-4a469020245d.jpg',
     '/products/a5c1d67b-a50b-428c-9eed-7b69d8adc703.jpg'
+  ],
+  properties: [
+    {
+      name: 'Tamaño de pantalla',
+      value: '4"'
+    },
+    {
+      name: 'Cámara trasera',
+      value: '5 mp'
+    },
+    {
+      name: 'Cámara frontal',
+      value: '2 mp'
+    },
+    {
+      name: 'Sistema Operativo',
+      value: 'android'
+    },
+    {
+      name: 'Procesador',
+      value: 'quad core'
+    },
+    {
+      name: 'Red',
+      value: '3g'
+    },
+    {
+      name: 'Marca',
+      value: 'BMOBILE'
+    },
+    {
+      name: 'Modelo',
+      value: 'AX687'
+    },
+    {
+      name: 'Modelo #',
+      value: 'AX687'
+    },
+    {
+      name: 'Operador',
+      value: 'Movistar'
+    },
+    {
+      name: 'Color',
+      value: 'azul'
+    },
+    {
+      name: 'Memoria interna real',
+      value: '16 gb'
+    },
+    {
+      name: 'Memoria RAM',
+      value: '512 mb'
+    },
+    {
+      name: 'Memoria expandible',
+      value: 'hasta 32 gb'
+    },
+    {
+      name: 'Versión del procesador',
+      value: '1.3 ghz'
+    },
+    {
+      name: 'Garantía',
+      value: '1 año de garantía directamente con el proveedor'
+    },
+    {
+      name: 'Promocion',
+      value: 'Oferta'
+    }
   ]
 }
-
-const properties = [
-  {
-    name: 'Tamaño de pantalla',
-    value: '4"'
-  },
-  {
-    name: 'Cámara trasera',
-    value: '5 mp'
-  },
-  {
-    name: 'Cámara frontal',
-    value: '2 mp'
-  },
-  {
-    name: 'Sistema Operativo',
-    value: 'android'
-  },
-  {
-    name: 'Procesador',
-    value: 'quad core'
-  },
-  {
-    name: 'Red',
-    value: '3g'
-  },
-  {
-    name: 'Marca',
-    value: 'BMOBILE'
-  },
-  {
-    name: 'Modelo',
-    value: 'AX687'
-  },
-  {
-    name: 'Modelo #',
-    value: 'AX687'
-  },
-  {
-    name: 'Operador',
-    value: 'Movistar'
-  },
-  {
-    name: 'Color',
-    value: 'azul'
-  },
-  {
-    name: 'Memoria interna real',
-    value: '16 gb'
-  },
-  {
-    name: 'Memoria RAM',
-    value: '512 mb'
-  },
-  {
-    name: 'Memoria expandible',
-    value: 'hasta 32 gb'
-  },
-  {
-    name: 'Versión del procesador',
-    value: '1.3 ghz'
-  },
-  {
-    name: 'Garantía',
-    value: '1 año de garantía directamente con el proveedor'
-  },
-  {
-    name: 'Promocion',
-    value: 'Oferta'
-  }
-]
 
 export const post: APIRoute = async () => {
   if (process.env.NODE_ENV !== 'development') {
@@ -97,12 +96,7 @@ export const post: APIRoute = async () => {
   }
 
   await db.product.deleteMany({})
-  await db.property.deleteMany({})
-
-  const { id } = await db.product.create({ data })
-  await db.property.createMany({
-    data: properties.map((properties) => ({ productId: id, ...properties }))
-  })
+  await db.product.create({ data })
 
   return response(200, { message: msg.seed })
 }
