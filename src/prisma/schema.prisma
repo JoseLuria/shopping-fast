@@ -12,7 +12,7 @@ model Product {
   slug        String     @unique
   name        String     @unique
   price       Int
-  discount    Int
+  discount    Int?
   category    Category
   stock       Int
   description String
