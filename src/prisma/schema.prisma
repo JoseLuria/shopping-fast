@@ -3,12 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model Product {
-  id          String     @id @default(uuid()) @db.Uuid
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
   slug        String     @unique
   name        String     @unique
   price       Int
@@ -20,12 +20,9 @@ model Product {
   properties  Property[]
 }
 
-model Property {
-  id        String  @id @default(uuid()) @db.Uuid
-  name      String
-  value     String
-  Product   Product @relation(fields: [productId], references: [id])
-  productId String  @db.Uuid
+type Property {
+  name  String
+  value String
 }
 
 enum Category {
