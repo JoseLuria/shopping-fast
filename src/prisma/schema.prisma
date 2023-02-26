@@ -30,7 +30,6 @@ model Property {
 
 enum Category {
   celulares
-  computadoras
   electronica
   videojuegos
 }
