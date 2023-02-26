@@ -22,3 +22,4 @@ pnpm-debug.log*
 
 # database
 database
+public/products
