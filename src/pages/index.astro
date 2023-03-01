@@ -1,9 +1,14 @@
 ---
 import MainLayout from '@/components/layouts/MainLayout.astro'
 import Navbar from '@/components/shared/Navbar'
+import ProductList from '@/components/products/ProductList'
 ---
 
 <MainLayout>
   <Navbar />
-  <h1>Hello World</h1>
+  <main
+    class='w-full grid grid-cols-2 gap-6 mb-12 sm:gap-10 sm:grid-cols-4 lg:grid-cols-5 md:mb-24'
+  >
+    <ProductList client:load />
+  </main>
 </MainLayout>
