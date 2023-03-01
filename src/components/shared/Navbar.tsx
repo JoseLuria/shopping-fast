@@ -1,7 +1,7 @@
-export default function Navbar() {
+const Navbar = () => {
   return (
-    <nav className='w-full h-24 border-b-[1px] flex gap-2 items-center border-white border-opacity-10 md:gap-4'>
-      <span className='ml-auto'></span>
+    <nav class='w-full h-24 border-b-[1px] flex gap-2 items-center border-white border-opacity-10 md:gap-4'>
+      <span class='ml-auto'></span>
 
       <svg
         width='28'
@@ -53,3 +53,5 @@ export default function Navbar() {
     </nav>
   )
 }
+
+export default Navbar
