@@ -10,7 +10,7 @@ const ProductCard: FunctionComponent<ProductResponse> = ({
   oldPrice
 }) => {
   return (
-    <a title={name} href={`/products/${slug}`}>
+    <a class='flex flex-col' title={name} href={`/products/${slug}`}>
       <picture class='aspect-square rounded-lg bg-white flex'>
         <img
           width={1600}
