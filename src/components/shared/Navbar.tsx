@@ -1,7 +1,21 @@
 const Navbar = () => {
   return (
     <nav class='w-full h-24 border-b-[1px] flex gap-2 items-center border-white border-opacity-10 md:gap-4'>
-      <span class='ml-auto'></span>
+      <a
+        href='/'
+        class='text-2xl min-w-[34px] justify-center font-semibold items-center flex mr-auto gap-3'
+      >
+        <svg
+          width='24'
+          height='30'
+          viewBox='0 0 24 30'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path d='M13.3333 11.6667V0L0 18.3333H10V30L23.3333 11.6667H13.3333Z' fill='white' />
+        </svg>
+        <span class='hidden md:block'>ShoppingFast</span>
+      </a>
 
       <svg
         width='28'
